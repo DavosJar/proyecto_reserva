@@ -74,16 +74,17 @@ public class VehiculoServiceImpl implements VehiculoService {
 
     @Override
     public Optional<Vehiculo> save(VehiculoSaveRequest request) {
-                Vehiculo vehiculoToSave = new Vehiculo();
-                vehiculoToSave.setMarca(request.getMarca());
-                vehiculoToSave.setModelo(request.getModelo());
-                vehiculoToSave.setMatricula(request.getMatricula());
-                vehiculoToSave.setEstadoVehiculo(request.getEstadoVehiculo());
-                vehiculoToSave.setYearFabricacion(request.getYearFabricacion());
-                vehiculoToSave.setCapacidadPersonas(request.getCapacidadPersonas());
+        System.out.println("Creando vehiculo para guardar");
+        Vehiculo vehiculoToSave = new Vehiculo();
+        vehiculoToSave.setMarca(request.getMarca());
+        vehiculoToSave.setModelo(request.getModelo());
+        vehiculoToSave.setMatricula(request.getMatricula());
+        vehiculoToSave.setEstadoVehiculo(request.getEstadoVehiculo());
+        vehiculoToSave.setYearFabricacion(request.getYearFabricacion());
+        vehiculoToSave.setCapacidadPersonas(request.getCapacidadPersonas());
 
-                return Optional.of(vehiculoRepository.save(vehiculoToSave));
-
+        System.out.println("Vehiculo creado: " + vehiculoToSave);
+        return Optional.of(vehiculoRepository.save(vehiculoToSave));
     }
     @Override
     public Optional<Vehiculo> update(VehiculoSaveRequest vehiculo) {

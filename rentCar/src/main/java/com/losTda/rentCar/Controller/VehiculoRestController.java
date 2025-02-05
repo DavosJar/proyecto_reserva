@@ -36,6 +36,7 @@ public class VehiculoRestController {
 
     @PostMapping("/guardar")
     public ResponseEntity<Map<String, Object>> guardarVehiculo(@RequestBody VehiculoSaveRequest request) {
+        System.out.println("Guardando vehiculo");
         if (vehiculoService.existsByMatricula(request.getMatricula())) {
             return new ResponseBuilder()
                     .status(HttpStatus.BAD_REQUEST)
