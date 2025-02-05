@@ -1,0 +1,49 @@
+# IntelliJ IDEA
+.idea/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VSCode
+.vscode/
+
+# Maven
+target/
+*.log
+
+# Gradle
+.gradle/
+build/
+
+# JARs y archivos compilados
+*.jar
+*.war
+*.ear
+
+# Archivos de compilación temporales
+*.class
+
+# Archivos temporales de la JVM
+hs_err_pid*
+
+# Archivos de Spring Boot relacionados con la ejecución
+*.pid
+
+# Archivos de configuración de logs
+*.log
+
+# Archivos de dependencias descargados (si no usas maven/gradle con el repositorio local)
+dependency-reduced-pom.xml
+
+# Archivos de bases de datos locales
+*.h2.db
+*.db
+
+# Archivos de caché de dependencias (si usas NPM o similares en el proyecto)
+node_modules/
+
+# Archivos específicos del sistema operativo
+.DS_Store
+Thumbs.db
