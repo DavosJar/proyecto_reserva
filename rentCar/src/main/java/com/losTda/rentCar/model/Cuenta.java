@@ -22,9 +22,13 @@ public class Cuenta {
 
     private String estado;
 
-   /* @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "id_rol")
-    fprivate Rol rol;
-*/
+    private Rol rol;
+
+
+    /*@OneToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario; */
 
 }
