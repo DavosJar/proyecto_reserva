@@ -29,6 +29,8 @@ public class Vehiculo {
 
     @Column(name = "estado")
     private String estadoVehiculo;
+
+
     public Long getId() {
         return id;
     }
