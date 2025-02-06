@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface VehiculoService {
 
     List<Vehiculo> findAll();
+    Optional<Vehiculo> findById(Long id);
     Optional<Vehiculo> findByMatricula(String matricula);
     List<Vehiculo> findByMarca(String marca);
     List<Vehiculo> findByModelo(String modelo);

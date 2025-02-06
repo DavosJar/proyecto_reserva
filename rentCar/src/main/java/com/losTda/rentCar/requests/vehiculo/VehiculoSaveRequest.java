@@ -1,9 +1,6 @@
 package com.losTda.rentCar.requests.vehiculo;
 
-import com.losTda.rentCar.model.enums.EstadoVehiculo;
-import com.losTda.rentCar.model.enums.TipoCombustible;
-import com.losTda.rentCar.model.enums.TipoTransmision;
-import com.losTda.rentCar.model.enums.TipoVehiculo;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
