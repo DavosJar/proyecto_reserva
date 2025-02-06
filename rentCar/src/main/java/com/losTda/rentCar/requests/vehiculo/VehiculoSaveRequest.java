@@ -7,34 +7,34 @@ import lombok.NoArgsConstructor;
 import jakarta.validation.constraints.*;
 
 
-        @Data
-        @AllArgsConstructor
-        @NoArgsConstructor
-        public class VehiculoSaveRequest {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class VehiculoSaveRequest {
 
 
-            @NotBlank(message = "La marca es obligatoria")
-            private String marca;
+    @NotBlank(message = "La marca es obligatoria")
+    private String marca;
 
-            @NotBlank(message = "El modelo es obligatorio")
-            private String modelo;
+    @NotBlank(message = "El modelo es obligatorio")
+    private String modelo;
 
-            @NotBlank(message = "La matrícula es obligatoria")
-            private String matricula;
+    @NotBlank(message = "La matrícula es obligatoria")
+    private String matricula;
 
-            @NotNull(message = "El año de fabricación es obligatorio")
-            @Min(value = 1900, message = "El año de fabricación no puede ser menor a 1900")
-            @Max(value = 2100, message = "El año de fabricación no puede ser mayor a 2100")
-            private Integer yearFabricacion;
+    @NotNull(message = "El año de fabricación es obligatorio")
+    @Min(value = 1900, message = "El año de fabricación no puede ser menor a 1900")
+    @Max(value = 2100, message = "El año de fabricación no puede ser mayor a 2100")
+    private Integer yearFabricacion;
 
-            @NotNull(message = "La capacidad de pasajeros es obligatoria")
-            @Positive(message = "La capacidad de pasajeros debe ser un número positivo")
-            @Min(value = 1, message = "La capacidad de pasajeros no puede ser menor a 1")
-            @Max(value = 10, message = "La capacidad de pasajeros no puede ser mayor a 100")
-            private Integer capacidadPersonas;
+    @NotNull(message = "La capacidad de pasajeros es obligatoria")
+    @Positive(message = "La capacidad de pasajeros debe ser un número positivo")
+    @Min(value = 1, message = "La capacidad de pasajeros no puede ser menor a 1")
+    @Max(value = 10, message = "La capacidad de pasajeros no puede ser mayor a 100")
+    private Integer capacidadPersonas;
 
-            @NotNull(message = "El estado del vehículo es obligatorio")
-            private String estadoVehiculo;
+    @NotNull(message = "El estado del vehículo es obligatorio")
+    private String estadoVehiculo;
 
 
     public String getMarca() {

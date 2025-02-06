@@ -46,6 +46,19 @@
             }
         }
 
+    @Override
+    public Optional<Vehiculo> save(VehiculoSaveRequest request) {
+        Vehiculo vehiculoToSave = new Vehiculo();
+        vehiculoToSave.setMarca(request.getMarca());
+        vehiculoToSave.setModelo(request.getModelo());
+        vehiculoToSave.setMatricula(request.getMatricula());
+        vehiculoToSave.setEstadoVehiculo(request.getEstadoVehiculo());
+        vehiculoToSave.setYearFabricacion(request.getYearFabricacion());
+        vehiculoToSave.setCapacidadPersonas(request.getCapacidadPersonas());
+
+        return Optional.of(vehiculoRepository.save(vehiculoToSave));
+    }
+
         @Override
         public List<Vehiculo> findByEstadoVehiculo(String estado) {
             try {
@@ -64,18 +77,6 @@
             }
         }
 
-        @Override
-        public Optional<Vehiculo> save(VehiculoSaveRequest request) {
-
-            Vehiculo vehiculoToSave = new Vehiculo();
-            vehiculoToSave.setMarca(request.getMarca());
-            vehiculoToSave.setModelo(request.getModelo());
-            vehiculoToSave.setMatricula(request.getMatricula());
-            vehiculoToSave.setEstadoVehiculo(request.getEstadoVehiculo());
-            vehiculoToSave.setYearFabricacion(request.getYearFabricacion());
-            vehiculoToSave.setCapacidadPersonas(request.getCapacidadPersonas());
-            return Optional.of(vehiculoRepository.save(vehiculoToSave));
-        }
     @Override
     public Optional<Vehiculo> update(VehiculoSaveRequest vehiculo) {
         Optional<Vehiculo> vehiculoToUpdate = vehiculoRepository.findByMatricula(vehiculo.getMatricula());
