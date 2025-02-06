@@ -35,7 +35,7 @@ public class MetodoPagoRestController {
 
     @PostMapping("/guardar")
     public ResponseEntity<Map<String, Object>> guardarMetodoPago(@RequestBody MetodoPagoSaveRequest request) {
-        List<MetodoPago> metodoPagoExistente = metodoPagoService.findByTipo(request.getTipo());
+        Optional<MetodoPago> metodoPagoExistente = metodoPagoService.findByTipo(request.getTipo());
 
         if (!metodoPagoExistente.isEmpty()) {
             return new ResponseBuilder()
@@ -69,9 +69,9 @@ public class MetodoPagoRestController {
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> obtenerMetodoPagoPorId(@PathVariable Long id) {
-        Optional<MetodoPago> metodoPago = metodoPagoService.findById(id);
+    @GetMapping("/tipo/{tipo}")
+    public ResponseEntity<Map<String, Object>> obtenerMetodoPagoPorTipo(@PathVariable String tipo) {
+        Optional<MetodoPago> metodoPago = metodoPagoService.findByTipo(tipo);
 
         if (metodoPago.isPresent()) {
             return new ResponseBuilder()
@@ -82,7 +82,7 @@ public class MetodoPagoRestController {
         } else {
             return new ResponseBuilder()
                     .status(HttpStatus.NOT_FOUND)
-                    .message("No se encontró un método de pago con el ID: " + id)
+                    .message("No se encontró un método de pago con el tipo: " + tipo)
                     .build();
         }
     }

@@ -8,8 +8,7 @@ import java.util.Optional;
 
 public interface MetodoPagoService {
     List<MetodoPago> findAll();
-    List<MetodoPago> findByTipo(String tipo);
+    Optional<MetodoPago> findByTipo(String tipo);
     MetodoPago save(MetodoPagoSaveRequest metodoPago);
     Optional<MetodoPago> update(MetodoPagoSaveRequest metodoPago);
-    Optional<MetodoPago> findById(Long id);
 }

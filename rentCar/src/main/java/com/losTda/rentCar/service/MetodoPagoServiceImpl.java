@@ -23,12 +23,8 @@ public class MetodoPagoServiceImpl implements MetodoPagoService{
     }
 
     @Override
-    public List<MetodoPago> findByTipo(String tipo) {
-        try {
-            return metodoPagoRepository.findByTipo(tipo);
-        }catch (IllegalArgumentException e){
-            throw new RuntimeException("No se encontraron tipos del tipo: " + tipo);
-        }
+    public Optional<MetodoPago> findByTipo(String tipo) {
+        return metodoPagoRepository.findByTipo(tipo);
     }
 
     @Override
@@ -50,8 +46,4 @@ public class MetodoPagoServiceImpl implements MetodoPagoService{
         return Optional.empty();
     }
 
-    @Override
-    public Optional<MetodoPago> findById(Long id) {
-        return metodoPagoRepository.findById(id); // Usa el método del repositorio
-    }
 }
