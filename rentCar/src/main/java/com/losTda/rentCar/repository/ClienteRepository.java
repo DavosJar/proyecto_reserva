@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-    Optional<Cliente> findByNombre(String nombre);
     Optional<Cliente> findByUsuario(Usuario usuario);
+    Optional<Cliente> findByIdUsuario(Long idUsuario);
     List<Cliente> findAll();
     void deleteById(Long id);
 }

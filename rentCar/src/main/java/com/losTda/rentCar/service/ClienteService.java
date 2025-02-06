@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface ClienteService {
     Optional<Cliente> findByUsuario(Usuario usuario);
+    Optional<Cliente> findByIdUsuario(Long idUsuario);
     List<Cliente> findAll();
     Optional<Cliente> save(ClienteSaveRequest cliente);
     Optional<Cliente> update(ClienteSaveRequest cliente);

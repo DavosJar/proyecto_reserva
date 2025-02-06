@@ -54,7 +54,7 @@ public class LicenciaRestController {
         }
     }
 
-    @PostMapping("/guardar")
+    /*@PostMapping("/guardar")
     public ResponseEntity<Map<String, Object>> guardarLicencia(@RequestBody LicenciaSaveRequest request) {
         Optional<Usuario> usuarioOptional = usuarioRepository.findByDni(String.valueOf(request.getIdUsuario()));
 
@@ -84,7 +84,7 @@ public class LicenciaRestController {
                     .message(e.getMessage())
                     .build();
         }
-    }
+    }*/
 
     @PutMapping("/actualizar")
     public ResponseEntity<Map<String, Object>> actualizarLicencia(@RequestBody Licencia licencia) {

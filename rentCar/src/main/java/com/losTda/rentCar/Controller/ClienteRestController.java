@@ -39,6 +39,15 @@ public class ClienteRestController {
                 .build();
     }
 
+    @GetMapping("/obtener/{id}")
+    public ResponseEntity<Map<String, Object>> findById(@PathVariable("id") Long id) {
+        return new ResponseBuilder()
+                .status(HttpStatus.OK)
+                .data(clienteService.findByIdUsuario(id))
+                .message("Cliente obtenido correctamente")
+                .build();
+    }
+
     @PostMapping("/guardar")
     public ResponseEntity<Map<String, Object>> save(@RequestBody ClienteSaveRequest usuario) {
         return new ResponseBuilder()
