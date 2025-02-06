@@ -43,6 +43,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             Usuario usuarioActualizado = usuarioExistente.get();
             usuarioActualizado.setDni(usuario.getDni());
             usuarioActualizado.setNombres(usuario.getNombres());
+            usuarioActualizado.setDireccion(usuario.getDireccion());
             return Optional.of(usuarioRepository.save(usuarioActualizado));
         }
         return Optional.empty();
