@@ -68,6 +68,20 @@ public class SucursalRestController {
                 .build();
     }
 
+    @PostMapping("/actualizar")
+    public ResponseEntity<Map<String, Object>> actualizarSucursal(@RequestBody SucursalSaveRequest sucursal){
+        return sucursalService.update(sucursal)
+                .map(sucursalActualizada -> new ResponseBuilder()
+                        .status(HttpStatus.OK)
+                        .data(sucursalActualizada)
+                        .message("Sucursal actualizada correctamente")
+                        .build())
+                .orElseGet(() -> new ResponseBuilder()
+                        .status(HttpStatus.BAD_REQUEST)
+                        .message("No se pudo actualizar la sucursal")
+                        .build());
+    }
+
     @GetMapping("/nombre/{nombre}")
     public ResponseEntity<Map<String, Object>> obtenerSucursalPorNombre(String nombre){
         List<Sucursal> sucursales = sucursalService.findByNombreSucursal(nombre);
