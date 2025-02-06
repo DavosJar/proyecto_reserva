@@ -11,6 +11,7 @@ public interface SucursalService {
     List<Sucursal> findAll();
     Optional<Sucursal> findByTelefono(String telefono);
     Optional<Sucursal> save(SucursalSaveRequest request);
+    Optional<Sucursal> update(SucursalSaveRequest request);
     Optional<Sucursal> findById(Long id);
     void deleteById(Long id);
 }

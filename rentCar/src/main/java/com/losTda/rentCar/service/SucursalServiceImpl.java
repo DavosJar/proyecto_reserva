@@ -23,6 +23,18 @@ public class SucursalServiceImpl implements SucursalService{
     }
 
     @Override
+    public Optional<Sucursal> update(SucursalSaveRequest request){
+        Sucursal sucursalActualizada = new Sucursal();
+        sucursalActualizada.setId(request.getId());
+        sucursalActualizada.setNombreSucursal(request.getNombreSucursal());
+        sucursalActualizada.setTelefono(request.getTelefono());
+        sucursalActualizada.setDireccion(request.getDireccion());
+
+        return Optional.of(sucursalRepository.save(sucursalActualizada));
+
+    }
+
+    @Override
     public List<Sucursal> findByNombreSucursal(String nombreSucursal){
         return sucursalRepository.findByNombreSucursal(nombreSucursal);
     }

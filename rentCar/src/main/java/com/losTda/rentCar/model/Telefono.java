@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity(name = "telefono")
 public class Telefono {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +17,7 @@ public class Telefono {
 
     private String descripcion;
 
-    /*@OneToOne
+    @OneToOne
     @JoinColumn(name = "id_persona")
-    private Usuario usuario;*/
+    private Usuario usuario;
 }

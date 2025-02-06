@@ -22,6 +22,7 @@ public class FacturaRestController {
         this.facturaService = facturaService;
     }
 
+    // TODO: NO ELIMINAR FACTURA POR FAVOR, HAY QUE CAMBIAR ESO
     @GetMapping
     public ResponseEntity<Map<String, Object>> obtenerFacturas() {
         List<Factura> facturas = facturaService.findAll();

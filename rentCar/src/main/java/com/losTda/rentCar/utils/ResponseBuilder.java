@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ResponseBuilder {
@@ -72,4 +73,6 @@ public class ResponseBuilder {
                 .info("Error en la operación")
                 .build();
     }
+
+
 }

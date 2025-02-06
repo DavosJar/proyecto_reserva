@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/vehiculos")
+@RequestMapping("/vehiculo")
 public class VehiculoRestController {
 
     private final VehiculoService vehiculoService;
@@ -46,7 +46,7 @@ public class VehiculoRestController {
                         .build())
                 .orElseGet(() -> new ResponseBuilder()
                         .status(HttpStatus.NOT_FOUND)
-                        .message("No se encontró el vehículo")
+                        .message("No se encontró el vehículo con ID " + id)
                         .build());
     }
 
@@ -66,13 +66,20 @@ public class VehiculoRestController {
 
     @GetMapping("/marca/{marca}")
     public ResponseEntity<Map<String, Object>> obtenerVehiculosPorMarca(@PathVariable String marca) {
-        List<Vehiculo> vehiculos = vehiculoService.findByMarca(marca);
 
-        return new ResponseBuilder()
-                .status(HttpStatus.OK)
-                .data(vehiculos)
-                .message("Vehículos obtenidos correctamente")
-                .build();
+        try{
+            return new ResponseBuilder()
+                    .status(HttpStatus.OK)
+                    .data(vehiculoService.findByMarca(marca))
+                    .message("Vehículos obtenidos correctamente")
+                    .build();
+        } catch (Exception e) {
+            return new ResponseBuilder()
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .message("Algo salió mal")
+                    .build();
+        }
+
     }
 
     @GetMapping("/modelo/{modelo}")
@@ -148,7 +155,5 @@ public class VehiculoRestController {
                     .build();
         }
     }
-
-
 
 }
