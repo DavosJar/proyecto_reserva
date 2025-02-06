@@ -1,5 +1,6 @@
 package com.losTda.rentCar.requests;
 
+import com.losTda.rentCar.model.Rol;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,4 +17,7 @@ public class CuentaSaveRequest {
 
     @NotBlank(message = "El correo no puede estar vacío")
     private String correo;
+
+    @NotBlank(message = "El Rol no puede estar vacío")
+    private Rol rol;
 }
