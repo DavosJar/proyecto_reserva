@@ -23,7 +23,6 @@ public class Alquiler {
     private LocalDate fechaDevolucion;
     private String costoDia;
 
-    /*@ManyToOne
-    private Usuario usuario;*/
-
+    @ManyToOne
+    private Usuario usuario;
 }

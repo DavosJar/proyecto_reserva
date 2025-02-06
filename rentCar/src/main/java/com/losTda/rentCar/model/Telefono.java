@@ -16,7 +16,7 @@ public class Telefono {
 
     private String descripcion;
 
-    /*@OneToOne
+    @OneToOne
     @JoinColumn(name = "id_persona")
-    private Usuario usuario;*/
+    private Usuario usuario;
 }

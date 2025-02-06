@@ -22,4 +22,7 @@ public class AlquilerSaveRequest {
 
     @NotBlank(message = "El estado del alquiler no puede estar vacío")
     private String estadoAlquiler;
+
+    @NotBlank(message = "El usuario no puede estar vacío")
+    private Long usuario;
 }

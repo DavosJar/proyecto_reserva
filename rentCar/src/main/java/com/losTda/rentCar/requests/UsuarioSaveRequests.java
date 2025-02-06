@@ -1,5 +1,6 @@
 package com.losTda.rentCar.requests;
 
+import com.losTda.rentCar.model.Direccion;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,4 +17,7 @@ public class UsuarioSaveRequests {
 
     @NotBlank(message = "Los nombres son obligatorios")
     private String nombres;
+
+    @NotBlank(message = "El campo de Dirección no puede estar vacio")
+    private Direccion direccion;
 }

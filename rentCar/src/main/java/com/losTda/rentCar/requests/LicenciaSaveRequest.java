@@ -23,5 +23,5 @@ public class LicenciaSaveRequest {
     private LocalDate fechaExpedicion;
 
     @NotNull(message = "El usuario es obligatorio")
-    private Long idUsuario;
+    private Long usuario;
 }

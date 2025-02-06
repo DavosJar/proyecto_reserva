@@ -23,4 +23,8 @@ public class Usuario {
     @Column(name = "nombres", nullable = false)
     @NotBlank(message = "Los nombres son obligatorios")
     private String nombres;
+
+    @ManyToOne
+    @JoinColumn(name = "id_direccion", nullable = false)
+    private Direccion direccion;
 }
