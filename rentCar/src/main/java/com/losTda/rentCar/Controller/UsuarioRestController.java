@@ -53,6 +53,7 @@ public class UsuarioRestController {
         Usuario usuario = new Usuario();
         usuario.setDni(request.getDni());
         usuario.setNombres(request.getNombres());
+        usuario.setDireccion(request.getDireccion());
 
         Usuario usuarioGuardado = usuarioService.save(usuario);
         return new ResponseBuilder()
