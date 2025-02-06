@@ -47,3 +47,19 @@ node_modules/
 # Archivos específicos del sistema operativo
 .DS_Store
 Thumbs.db
+
+# Ignorar node_modules globalmente
+node_modules/
+
+# Ignorar archivos específicos del frontend
+front_rent_car/dist/
+front_rent_car/.vite/
+
+# Archivos de entorno del frontend
+front_rent_car/.env
+front_rent_car/.env.local
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+

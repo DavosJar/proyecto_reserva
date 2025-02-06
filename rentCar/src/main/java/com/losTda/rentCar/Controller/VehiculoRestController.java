@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/vehiculos")
+@RequestMapping("/vehiculo")
 public class VehiculoRestController {
 
     private final VehiculoService vehiculoService;
