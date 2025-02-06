@@ -1,6 +1,7 @@
 package com.losTda.rentCar.Controller;
 
 import com.losTda.rentCar.model.Alquiler;
+import com.losTda.rentCar.requests.AlquilerSaveRequest;
 import com.losTda.rentCar.service.AlquilerService;
 import com.losTda.rentCar.utils.ResponseBuilder;
 import org.springframework.http.HttpStatus;
@@ -44,6 +45,42 @@ public class AlquilerRestController {
             return new ResponseBuilder()
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .message("No se pudo obtener el alquiler")
+                    .build();
+        }
+    }
+
+    @PostMapping("/guardar")
+    public ResponseEntity<Map<String, Object>> guardarAlquiler(@RequestBody AlquilerSaveRequest request) {
+        try {
+            return new ResponseBuilder()
+                    .status(HttpStatus.CREATED)
+                    .data(alquilerService.save(request).get())
+                    .message("Alquiler guardado correctamente")
+                    .build();
+        } catch (Exception e) {
+            return new ResponseBuilder()
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .message("No se pudo guardar el alquiler")
+                    .build();
+        }
+    }
+
+    @PostMapping("/actualizar")
+    public ResponseEntity<Map<String, Object>> actualizarAlquiler(@RequestBody AlquilerSaveRequest request) {
+        if (alquilerService.findById(request.getId()).isEmpty()) {
+            return new ResponseBuilder()
+                    .status(HttpStatus.BAD_REQUEST)
+                    .message("No existe un alquiler con la fecha de inicio: " + request.getFechaInicio())
+                    .build();
+        }
+        try {
+            return new ResponseBuilder()
+                    .status(HttpStatus.OK)
+                    .data(alquilerService.update(request).get()).build();
+        } catch (Exception e) {
+            return new ResponseBuilder()
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .message("No se pudo actualizar el alquiler")
                     .build();
         }
     }
