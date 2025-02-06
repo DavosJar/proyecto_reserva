@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClienteSaveRequest {
 
-    private Long id;
+    private Long idUsuario;
 
     @NotBlank(message = "El campo de usuario no puede estar vacio")
     private Usuario usuario;

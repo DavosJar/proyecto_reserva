@@ -1,5 +1,6 @@
 package com.losTda.rentCar.requests;
 
+import com.losTda.rentCar.model.Usuario;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,5 +25,5 @@ public class AlquilerSaveRequest {
     private String estadoAlquiler;
 
     @NotBlank(message = "El usuario no puede estar vacío")
-    private Long usuario;
+    private Usuario usuario;
 }

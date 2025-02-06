@@ -24,5 +24,6 @@ public class Alquiler {
     private String costoDia;
 
     @ManyToOne
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 }
