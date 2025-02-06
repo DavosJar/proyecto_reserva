@@ -31,7 +31,6 @@ public class SucursalServiceImpl implements SucursalService{
         sucursalActualizada.setDireccion(request.getDireccion());
 
         return Optional.of(sucursalRepository.save(sucursalActualizada));
-
     }
 
     @Override

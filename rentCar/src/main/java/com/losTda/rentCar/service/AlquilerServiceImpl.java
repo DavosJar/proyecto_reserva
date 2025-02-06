@@ -77,6 +77,7 @@ public class AlquilerServiceImpl implements AlquilerService {
         alquilerToSave.setFechaDevolucion(LocalDate.parse(alquiler.getFechaDevolucion()));
         alquilerToSave.setCostoDia(alquiler.getCostoDia());
         alquilerToSave.setEstadoAlquiler(alquiler.getEstadoAlquiler());
+        alquilerToSave.setUsuario(alquiler.getUsuario());
         return Optional.of(alquilerRepository.save(alquilerToSave));
     }
 
@@ -88,6 +89,7 @@ public class AlquilerServiceImpl implements AlquilerService {
         alquilerToUpdate.setFechaDevolucion(LocalDate.parse(alquilerSaveRequest.getFechaDevolucion()));
         alquilerToUpdate.setCostoDia(alquilerSaveRequest.getCostoDia());
         alquilerToUpdate.setEstadoAlquiler(alquilerSaveRequest.getEstadoAlquiler());
+        alquilerToUpdate.setUsuario(alquilerSaveRequest.getUsuario());
 
         return Optional.of(alquilerRepository.save(alquilerToUpdate));
     }

@@ -31,6 +31,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public Optional<Cliente> save(ClienteSaveRequest cliente) {
         Cliente clienteToSave = new Cliente();
+        clienteToSave.setIdUsuario(cliente.getIdUsuario());
         clienteToSave.setUsuario(cliente.getUsuario());
         clienteToSave.setEstaHabilitado(cliente.getEstaHabilitado());
         return Optional.of(clienteRepository.save(clienteToSave));
