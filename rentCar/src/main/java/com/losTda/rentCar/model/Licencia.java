@@ -17,44 +17,16 @@ public class Licencia {
     @Column(name = "id_licencia")
     private Long id;
 
-    @Column(name = "codigo")
+    @Column(name = "codigo", nullable = false, unique = true)
     private String codigo;
 
-    @Column(name = "fecha_caducidad")
+    @Column(name = "fecha_caducidad", nullable = false)
     private LocalDate fechaCaducidad;
 
-    @Column(name = "fecha_expedicion")
+    @Column(name = "fecha_expedicion", nullable = false)
     private LocalDate fechaExpedicion;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public LocalDate getFechaCaducidad() {
-        return fechaCaducidad;
-    }
-
-    public void setFechaCaducidad(LocalDate fechaCaducidad) {
-        this.fechaCaducidad = fechaCaducidad;
-    }
-
-    public LocalDate getFechaExpedicion() {
-        return fechaExpedicion;
-    }
-
-    public void setFechaExpedicion(LocalDate fechaExpedicion) {
-        this.fechaExpedicion = fechaExpedicion;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Usuario usuario;
 }
