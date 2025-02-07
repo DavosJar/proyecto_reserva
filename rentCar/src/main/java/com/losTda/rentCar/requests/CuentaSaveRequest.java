@@ -20,4 +20,10 @@ public class CuentaSaveRequest {
 
     @NotBlank(message = "El Rol no puede estar vacío")
     private Rol rol;
+
+    @NotBlank(message = "La contraseña no puede estar vacía")
+    private String contrasena;
+
+    @NotBlank(message = "El Usuario no puede estar vacío")
+    private Long usuario;
 }

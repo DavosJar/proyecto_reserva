@@ -27,8 +27,8 @@ public class Cuenta {
     private Rol rol;
 
 
-    /*@OneToOne
+    @OneToOne
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario; */
+    private Usuario usuario;
 
 }

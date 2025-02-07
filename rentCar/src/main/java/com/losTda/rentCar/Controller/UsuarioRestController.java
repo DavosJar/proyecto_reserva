@@ -1,7 +1,10 @@
 package com.losTda.rentCar.Controller;
 
 import com.losTda.rentCar.model.Usuario;
+import com.losTda.rentCar.repository.DireccionRepository;
 import com.losTda.rentCar.requests.UsuarioSaveRequests;
+import com.losTda.rentCar.service.DireccionService;
+import com.losTda.rentCar.service.DireccionServiceImpl;
 import com.losTda.rentCar.service.UsuarioService;
 import com.losTda.rentCar.utils.ResponseBuilder;
 import org.springframework.http.HttpStatus;
@@ -14,6 +17,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioRestController {
+
+    // TODO: Se puede eliminar un Usuario?
+    // TODO: No se puede Actualizar a los usuarios, arreglarlo pronto!!
 
     private final UsuarioService usuarioService;
 
@@ -53,6 +59,7 @@ public class UsuarioRestController {
         Usuario usuario = new Usuario();
         usuario.setDni(request.getDni());
         usuario.setNombres(request.getNombres());
+        usuario.setDireccion(request.getDireccion());
 
         Usuario usuarioGuardado = usuarioService.save(usuario);
         return new ResponseBuilder()
@@ -62,12 +69,14 @@ public class UsuarioRestController {
                 .build();
     }
 
-    @PutMapping("/actualizar")
+    @PostMapping("/actualizar")
     public ResponseEntity<?> actualizarUsuario(@RequestBody UsuarioSaveRequests request) {
         Usuario usuario = new Usuario();
+        System.out.println(request);
         usuario.setId(request.getId());
         usuario.setDni(request.getDni());
         usuario.setNombres(request.getNombres());
+        usuario.setDireccion(request.getDireccion());
 
         Optional<Usuario> usuarioActualizado = usuarioService.update(usuario);
         if (usuarioActualizado.isPresent()) {
